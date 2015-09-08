@@ -318,6 +318,31 @@ message TsPutResp {
 
 }
 
+message TsSubmitReq {
+  required bytes query = 1;
+}
+
+message TsSubmitResp {
+  required TsQueryId = 1;
+}
+
+message TsFetchReq {
+  required TsQueryId id;
+}
+
+message TsFetchResp {
+  repeated TsDatum = 1;
+}
+
+message TsQueryId {
+  required bytes id;
+}
+
+message TsDatum {
+  required bytes column = 1;
+  required TsCell value = 2;
+}
+
 message TsInterpolation {
   required bytes base = 1;
   repeated RpbPair interpolations = 2;
